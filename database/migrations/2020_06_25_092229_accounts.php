@@ -14,7 +14,7 @@ class Accounts extends Migration
     public function up()
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->integer('account_number')->unique();
+            $table->char('account_number', 26)->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('balance', 15, 2);
