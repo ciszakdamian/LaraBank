@@ -2,7 +2,10 @@
 
 return [
 
-    'full_name'                   => 'Full name',
+    'name'                        => 'Name',
+    'surname'                     => 'Surname',
+    'birthday'                    => 'Birthday',
+    'idnumber'                    => 'ID number',
     'email'                       => 'Email',
     'password'                    => 'Password',
     'retype_password'             => 'Retype password',
@@ -15,7 +18,7 @@ return [
     'log_out'                     => 'Log Out',
     'toggle_navigation'           => 'Toggle navigation',
     'login_message'               => 'Sign in to start your session',
-    'register_message'            => 'Register a new membership',
+    'register_message'            => 'Register a new bank account',
     'password_reset_message'      => 'Reset Password',
     'reset_password'              => 'Reset Password',
     'send_password_reset_link'    => 'Send Password Reset Link',
