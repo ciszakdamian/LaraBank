@@ -13,6 +13,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use App\Account\Account;
+
 class RegisterController extends Controller
 {
     /*
@@ -44,28 +46,6 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
-    /**
-     * Generate random account number
-     *
-     * @param $email
-     * @return void
-     */
-    private function createNewAccountNumber($email)
-    {
-
-        $lara_bank_id = 0123456789;
-
-
-        $user_id = User::where('email', '=', $email)->value('id');
-
-        AccountsModel::create([
-            'account_number' => 12345678912,
-            'user_id' => $user_id,
-            'balance' => 100,
-        ]);
-    }
-
 
     /**
      * Get a validator for an incoming registration request.
@@ -117,7 +97,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         //extra
-        $this->createNewAccountNumber($request->get('email'));
+        Account::createNewAccountNumber($request->get('email'));
 
         $this->guard()->login($user);
 
