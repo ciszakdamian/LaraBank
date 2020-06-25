@@ -16,4 +16,9 @@ return [
     'important'                     => 'Important',
     'warning'                       => 'Warning',
     'information'                   => 'Information',
+    //customs
+    'banking'                       => 'YOUR BANKING',
+    'finance'                       => 'Finance',
+    'transfer'                      => 'Transfer',
+    'operations_history'            => 'Operations history',
 ];
