@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountsModel;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -42,6 +46,28 @@ class RegisterController extends Controller
     }
 
     /**
+     * Generate random account number
+     *
+     * @param $email
+     * @return void
+     */
+    private function createNewAccountNumber($email)
+    {
+
+        $lara_bank_id = 0123456789;
+
+
+        $user_id = User::where('email', '=', $email)->value('id');
+
+        AccountsModel::create([
+            'account_number' => 12345678912,
+            'user_id' => $user_id,
+            'balance' => 100,
+        ]);
+    }
+
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -76,4 +102,32 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    /**
+     * Override default register method.
+     * Add creating new bank account.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|Response|\Illuminate\Routing\Redirector|mixed
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        //extra
+        $this->createNewAccountNumber($request->get('email'));
+
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new Response('', 201)
+            : redirect($this->redirectPath());
+    }
+
 }
