@@ -27,3 +27,5 @@ Route::get('/banking/finance', 'Banking\FinanceController@index')->middleware('a
 
 Route::get('/banking/transfer', 'Banking\TransferController@index')->middleware('auth');
 Route::post('/banking/transfer', 'Banking\TransferController@transfer')->middleware('auth');
+
+Route::get('/banking/history', 'Banking\HistoryController@index')->middleware('auth');
