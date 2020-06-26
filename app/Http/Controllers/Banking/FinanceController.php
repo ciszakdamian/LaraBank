@@ -13,10 +13,11 @@ class FinanceController extends Controller
     public function index()
     {
 
-        $account_number = Account::accountNumber(Auth::user()->getAuthIdentifier());
-        $account_balance = Account::accountBalance(Auth::user()->getAuthIdentifier());
+        $user_id = Auth::user()->getAuthIdentifier();
+        $account_number = Account::accountNumber($user_id);
+        $account_balance = Account::accountBalance($user_id);
+        $account_spend = Account::totalSpend($user_id);
 
-
-        return view('finance', ["account_balance" => $account_balance, "account_number" => $account_number]);
+        return view('finance', ["account_balance" => $account_balance, "account_number" => $account_number, "account_spend" => $account_spend]);
     }
 }

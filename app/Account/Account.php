@@ -3,6 +3,7 @@
 namespace App\Account;
 
 use App\Models\AccountsModel;
+use App\Models\TransfersModel;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,7 +55,6 @@ class Account
 
     }
 
-
     /**
      * Get account balance by user_id
      *
@@ -64,6 +64,17 @@ class Account
     public static function accountBalance($user)
     {
         return AccountsModel::where('user_id', '=', $user)->value('balance');
+    }
+
+    /**
+     * Get all account spend
+     *
+     * @param $user
+     * @return mixed
+     */
+    public static function totalSpend($user)
+    {
+        return TransfersModel::where('sender_account', '=', self::accountNumber($user))->sum('amount');
     }
 
 }

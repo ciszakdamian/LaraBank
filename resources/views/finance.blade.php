@@ -23,8 +23,8 @@
         <div class="col-12 col-sm-6">
             <div class="info-box bg-yellow">
                 <div class="info-box-content">
-                    <span class="info-box-text text-center text-white">Amount spent in last month</span>
-                    <span class="info-box-number text-center text-white mb-0">7641,42</span>
+                    <span class="info-box-text text-center text-white">Total amount spend</span>
+                    <span class="info-box-number text-center text-white mb-0">{{ $account_spend }}</span>
                 </div>
             </div>
         </div>
