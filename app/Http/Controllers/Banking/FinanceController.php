@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Banking;
 
+use App\Account\Account;
 use App\Http\Controllers\Controller;
 use App\Models\AccountsModel;
 use Illuminate\Http\Request;
@@ -12,9 +13,10 @@ class FinanceController extends Controller
     public function index()
     {
 
-        $account_balance = AccountsModel::where('user_id', '=', Auth::user()->getAuthIdentifier())->value('balance');
+        $account_number = Account::accountNumber(Auth::user()->getAuthIdentifier());
+        $account_balance = Account::accountBalance(Auth::user()->getAuthIdentifier());
 
 
-        return view('finance', ["account_balance" => $account_balance]);
+        return view('finance', ["account_balance" => $account_balance, "account_number" => $account_number]);
     }
 }
