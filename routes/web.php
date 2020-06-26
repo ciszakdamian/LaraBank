@@ -20,7 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', function() {
-    return view('home');
+//    return view('home');
+    return redirect('/banking/finance');
 })->name('home')->middleware('auth');
 
 Route::get('/banking/finance', 'Banking\FinanceController@index')->middleware('auth');
