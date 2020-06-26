@@ -51,7 +51,8 @@
 
         {{-- Birthday field --}}
         <div class="input-group mb-3">
-            <input type="date" name="birthday" class="form-control {{ $errors->has('birthday') ? 'is-invalid' : '' }}"
+            <input type="date" name="birthday" id="birthday"
+                   class="form-control {{ $errors->has('birthday') ? 'is-invalid' : '' }}"
                    value="{{ old('birthday') }}" placeholder="{{ __('adminlte::adminlte.birthday') }}" autofocus>
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -64,6 +65,23 @@
                 </div>
             @endif
         </div>
+
+        <script>
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            today = yyyy - 18 + '-' + mm + '-' + dd;
+            document.getElementById("birthday").setAttribute("max", today);
+        </script>
+
 
         {{-- idnumber field --}}
         <div class="input-group mb-3">
