@@ -9,13 +9,13 @@
 @section('content')
 
     <div class="card-header">
-        <h3 class="card-title">Account Detail</h3>
+        <h3 class="card-title">Account {{ $account_number }} Detail:</h3>
     </div>
     <div class="row">
         <div class="col-12 col-sm-6">
-            <div class="info-box bg-green">
+            <div class="info-box bg-cyan">
                 <div class="info-box-content">
-                    <span class="info-box-text text-center text-white">Balance</span>
+                    <span class="info-box-text text-center text-white">Balance:</span>
                     <span class="info-box-number text-center text-white mb-0">{{ $account_balance }}</span>
                 </div>
             </div>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="card-header">
-        <h3 class="card-title">Card Detail</h3>
+        <h3 class="card-title">Card Detail:</h3>
     </div>
     <div class="row">
         <div class="col-12 col-sm-6">
@@ -53,7 +53,7 @@
     </div>
 
     <div class="card-header">
-        <h3 class="card-title">Credit Detail</h3>
+        <h3 class="card-title">Credit Detail:</h3>
     </div>
     <div class="row">
         <div class="col-12 col-sm-6">
