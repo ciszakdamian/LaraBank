@@ -50,7 +50,7 @@ class TransferController extends Controller
             AccountsModel::where('user_id', '=', Auth::user()->getAuthIdentifier())->update(['balance' => $account_balance]);
             AccountsModel::where('account_number', '=', $request->get('transferAccountNumber'))->increment('balance', $request->get('transferAmount'));
 
-            return back()->with('info', 'Transfer money to '.$request->get('transferAccountNumber'));
+            return back()->with('info', 'Transfer '.$request->get('transferAmount').' to '.$request->get('transferAccountNumber'));
         }
 
     }
