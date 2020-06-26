@@ -24,3 +24,6 @@ Route::get('/home', function() {
 })->name('home')->middleware('auth');
 
 Route::get('/banking/finance', 'Banking\FinanceController@index')->middleware('auth');
+
+Route::get('/banking/transfer', 'Banking\TransferController@index')->middleware('auth');
+Route::post('/banking/transfer', 'Banking\TransferController@transfer')->middleware('auth');
