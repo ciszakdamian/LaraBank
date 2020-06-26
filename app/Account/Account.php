@@ -40,7 +40,18 @@ class Account
      */
     public static function accountNumber($user)
     {
-        return AccountsModel::where('user_id', '=', $user)->value('account_number');
+        $number = AccountsModel::where('user_id', '=', $user)->value('account_number');
+
+//        $number = str_split($number, 1);
+//        $fancy_number = "";
+//        for ($i = 0; $i <= 25; $i++) {
+//            $fancy_number = $fancy_number . "" . $number[$i];
+//            if ($i == 1) $fancy_number = $fancy_number . " ";
+//            if ($i == 9) $fancy_number = $fancy_number . " ";
+//        }
+
+        return $number;
+
     }
 
 
