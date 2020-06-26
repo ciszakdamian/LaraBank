@@ -18,7 +18,7 @@ class Transfers extends Migration
             $table->char('sender_account', 26);
             $table->char('recipient_account', 26);
             $table->decimal('amount', 15, 2);
-            $table->char('title', 100);
+            $table->char('title', 100)->nullable();
             $table->timestamp('data');
         });
     }
