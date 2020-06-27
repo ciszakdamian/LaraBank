@@ -26,6 +26,7 @@ class TransferController extends Controller
 
     /**
      * Validate form post data and make transfer between accounts.
+     *
      * After execute add transfer to history.
      *
      * @param Request $request
@@ -53,6 +54,9 @@ class TransferController extends Controller
             AccountsModel::where('user_id', '=', Auth::user()->getAuthIdentifier())->update(['balance' => $account_balance]);
             AccountsModel::where('account_number', '=', $request->get('transferAccountNumber'))->increment('balance', $request->get('transferAmount'));
 
+            //check recipient bank name
+            $recipient_bank = Account::identifyBank($request->get('transferAccountNumber'));
+
             //add transfer to history
             TransfersModel::create([
                 'sender_account' => Account::accountNumber(Auth::user()->getAuthIdentifier()),
@@ -61,7 +65,7 @@ class TransferController extends Controller
                 'title' => $request->get('transferTitle'),
             ]);
 
-            return back()->with('info', 'Transfer '.$request->get('transferAmount').' to '.$request->get('transferAccountNumber'));
+            return back()->with('info', 'Transfer ' . $request->get('transferAmount') . ' to ' . $request->get('transferAccountNumber') . ' in ' . $recipient_bank);
         }
 
     }
