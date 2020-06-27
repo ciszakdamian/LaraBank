@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', function() {
+Route::get('/home', function () {
 //    return view('home');
     return redirect('/banking/finance');
 })->name('home')->middleware('auth');
@@ -30,3 +30,5 @@ Route::get('/banking/transfer', 'Banking\TransferController@index')->middleware(
 Route::post('/banking/transfer', 'Banking\TransferController@transfer')->middleware('auth');
 
 Route::get('/banking/history', 'Banking\HistoryController@index')->middleware('auth');
+
+Route::get('/client/settings', 'ClientSettingsController@index')->middleware('auth');
