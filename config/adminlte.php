@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>L</b>ara<b>B</b>ank',
-    'logo_img' => 'https://i.dlpng.com/static/png/1532616-bank-free-icon-bank-png-512_512_preview.png',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
