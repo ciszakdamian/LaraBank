@@ -1,6 +1,8 @@
 # LaraBank
 Project from university Laravel course.
 
+![transfer_page](https://github.com/ciszakdamian/LaraBank/blob/master/screenshots/transfer_page.png?raw=true)
+
 ## Project assumptions
  Aplikacja do zarządzania zbiorem danych oparta na WebService (muzyka, filmy, gry etc), która zawiera: 
  
@@ -35,8 +37,6 @@ After deployed open in browser http://localhost:8080/
 ![register](https://raw.githubusercontent.com/ciszakdamian/LaraBank/master/screenshots/register.png)
 
 ![finance_page](https://github.com/ciszakdamian/LaraBank/blob/master/screenshots/finance_page.png?raw=true)
-
-![transfer_page](https://github.com/ciszakdamian/LaraBank/blob/master/screenshots/transfer_page.png?raw=true)
 
 ![history_page](https://github.com/ciszakdamian/LaraBank/blob/master/screenshots/history_page.png?raw=true)
 
