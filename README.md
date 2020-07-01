@@ -23,11 +23,15 @@ Project from university Laravel course.
 - Newer MariaDB or MySQL
 
 - ###### Dev deployment:
+
+![db_diagram](https://github.com/ciszakdamian/LaraBank/blob/master/screenshots/db-diagram.png?raw=true)
+
 ```
 #clone repo
 git clone git@github.com:ciszakdamian/LaraBank.git
 cd LaraBank
 composer install
+vim .env <- set your empty database
 php artisan migrate
 php artisan serve
 ```
