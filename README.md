@@ -22,7 +22,7 @@ Project from university Laravel course.
 - Composer
 - Newer MariaDB or MySQL
 
-- ###### Dev deployment:
+###### Dev deployment:
 
 ![db_diagram](https://github.com/ciszakdamian/LaraBank/blob/master/screenshots/db-diagram.png?raw=true)
 
